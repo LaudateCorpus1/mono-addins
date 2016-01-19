@@ -1806,7 +1806,7 @@ namespace Mono.Addins.Database
 						if (fileDatabase.Exists (ConfigFile))
 							config = DatabaseConfiguration.Read (ConfigFile);
 						else
-							config = new DatabaseConfiguration ();
+							config = DatabaseConfiguration.ReadAppConfig ();
 					}
 				}
 				return config;
