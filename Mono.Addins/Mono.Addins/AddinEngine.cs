@@ -426,7 +426,7 @@ namespace Mono.Addins
 					loadedAddinsCopy.Remove (Addin.GetIdName (id));
 					loadedAddins = loadedAddinsCopy;
 					if (addin.AssembliesLoaded) {
-						var loadedAssembliesCopy = new Dictionary<Assembly,RuntimeAddin> ();
+						var loadedAssembliesCopy = new Dictionary<Assembly,RuntimeAddin> (loadedAssemblies);
 						foreach (Assembly asm in addin.Assemblies)
 							loadedAssembliesCopy.Remove (asm);
 						loadedAssemblies = loadedAssembliesCopy;
@@ -448,7 +448,7 @@ namespace Mono.Addins
 		/// <remarks>
 		/// This method loads all assemblies that belong to an add-in in memory.
 		/// All add-ins on which the specified add-in depends will also be loaded.
-		/// Notice that in general add-ins don't need to be explicitely loaded using
+		/// Notice that in general add-ins don't need to be explicitly loaded using
 		/// this method, since the add-in engine will load them on demand.
 		/// </remarks>
 		public void LoadAddin (IProgressStatus statusMonitor, string id)
